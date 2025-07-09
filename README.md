@@ -4,9 +4,12 @@ An internal system for HR to manage employee training sessions, attendance, trai
 ## 📦 Features
 
 - Bulk add/update session participants
+- Provider management
 - Track attendance, cost, and training history
-- Session filtering, provider assignment
+- Session scheduling, filtering, provider assignment
 - APEX Interactive Grids and Forms
+- Dashboard with analytics
+
 
 ## 🛠 Tech Stack
 
