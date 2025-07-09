@@ -1,0 +1,547 @@
+---
+# ====== Page: Sessions_of_courses ===========================
+id: 10
+identification: 
+  name: Sessions_of_courses
+  alias: SESSIONS-OF-COURSES
+  title: Sessions_of_courses
+
+appearance: 
+  page-mode: Normal
+  page-template: Theme Default
+  template-options: 
+  - '#DEFAULT#'
+
+navigation-menu: 
+  override-user-interface-level: false
+
+navigation: 
+  cursor-focus: Do not focus cursor
+  warn-on-unsaved-changes: true
+
+css: 
+  inline: |
+    /* ===== PREMIUM APEX CARD ===== */
+    .premium-card {
+        --card-accent: #4F46E5; /* Default accent (indigo) */
+        border-radius: 16px;
+        background: #FFFFFF;
+        box-shadow: 
+            0 1px 3px rgba(0, 0, 0, 0.05),
+            0 8px 24px rgba(0, 0, 0, 0.08);
+        border: 1px solid rgba(0, 0, 0, 0.03);
+        overflow: hidden;
+        transition: all 0.4s cubic-bezier(0.22, 1, 0.36, 1);
+        margin-bottom: 28px;
+        position: relative;
+    }
+    
+    /* --- Hover Effect --- */
+    .premium-card:hover {
+        transform: translateY(-4px);
+        box-shadow: 
+            0 4px 6px rgba(0, 0, 0, 0.05),
+            0 16px 32px rgba(0, 0, 0, 0.12);
+        border-color: rgba(0, 0, 0, 0.06);
+    }
+    
+    /* --- Card Header (Elegant with subtle accent) --- */
+    .premium-card .a-CardView-header {
+        padding: 20px 24px;
+        background: #FFFFFF;
+        border-bottom: 1px solid rgba(0, 0, 0, 0.04);
+        font-weight: 600;
+        font-size: 1.15rem;
+        color: #111827;
+        position: relative;
+    }
+    
+    .premium-card .a-CardView-header::before {
+        content: '';
+        position: absolute;
+        top: 0;
+        left: 0;
+        height: 4px;
+        width: 100%;
+        background: linear-gradient(90deg, var(--card-accent) 0%, #7C3AED 100%);
+    }
+    
+    /* --- Card Body (Perfect typography) --- */
+    .premium-card .a-CardView-body {
+        padding: 24px;
+        color: #374151;
+        line-height: 1.7;
+        font-size: 0.95rem;
+        background: #FFFFFF;
+    }
+    
+    /* --- Card Footer (Subtle and refined) --- */
+    .premium-card .a-CardView-footer {
+        padding: 16px 24px;
+        background: #F9FAFB;
+        border-top: 1px solid rgba(0, 0, 0, 0.03);
+        font-size: 0.85rem;
+        color: #6B7280;
+    }
+    
+    /* --- Accent Color Variations --- */
+    .premium-card.accent-indigo {
+        --card-accent: #4F46E5;
+    }
+    .premium-card.accent-emerald {
+        --card-accent: #10B981;
+    }
+    .premium-card.accent-rose {
+        --card-accent: #F43F5E;
+    }
+    .premium-card.accent-amber {
+        --card-accent: #F59E0B;
+    }
+    
+    /* --- Glass Morphism Variant --- */
+    .premium-card.glass {
+        background: rgba(255, 255, 255, 0.72);
+        backdrop-filter: blur(12px);
+        border: 1px solid rgba(255, 255, 255, 0.2);
+        box-shadow: 
+            0 4px 30px rgba(0, 0, 0, 0.1);
+    }
+    
+    /* --- Minimal Variant --- */
+    .premium-card.minimal {
+        box-shadow: 0 1px 2px rgba(0, 0, 0, 0.03);
+        border: 1px solid rgba(0, 0, 0, 0.06);
+    }
+    .premium-card.minimal:hover {
+        box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+    }
+
+security: 
+  authentication: Page Requires Authentication
+  deep-linking: Application Default
+  page-access-protection: Arguments Must Have Checksum
+  form-auto-complete: Off
+  browser-cache: Application Default
+
+session-management: 
+  rejoin-sessions: Application Default
+
+advanced: 
+  enable-duplicate-page-submissions: Yes - Enable page to be re-posted
+  reload-on-submit: Only for Success
+
+server-cache: 
+  caching: Disabled
+
+regions: 
+- # ====== Region: Breadcrumb ==================================
+  id: 59680572492247767858
+  identification: 
+    name: Breadcrumb
+    type: Breadcrumb
+
+  source: 
+    breadcrumb: Breadcrumb # 58103871364841662441
+
+  layout: 
+    sequence: 10
+    parent-region: No Parent
+    slot: REGION_POSITION_01
+    start-new-layout: false
+    start-new-row: true
+    column: Automatic
+    new-column: true
+    column-span: Automatic
+
+  appearance: 
+    template: Title Bar
+    template-options: 
+    - '#DEFAULT#'
+    - t-BreadcrumbRegion--useBreadcrumbTitle
+    render-components: Above Content
+
+  accessibility: 
+    use-landmark: true
+    landmark-type: Template Default
+
+  advanced: 
+    region-display-selector: false
+    exclude-title-from-translation: false
+
+  customization: 
+    customizable: Not Customizable By End Users
+
+  attributes: 
+    appearance: 
+      breadcrumb-template: Breadcrumb
+      template-options: 
+      - '#DEFAULT#'
+
+- # ====== Region: Sessions_of_courses =========================
+  id: 59680573141699767861
+  identification: 
+    name: Sessions_of_courses
+    type: Cards
+
+  source: 
+    location: Local Database
+    type: SQL Query
+    sql-query: |
+      SELECT
+        id,
+        name,
+        session_date,
+        end_date,
+        ts_courses_id
+      FROM
+        ts_sessions
+      WHERE
+        ts_courses_id = TO_NUMBER(:P10_COURSE_ID)
+        AND (
+          :P10_SEARCH IS NULL
+          OR UPPER(name) LIKE UPPER('%' || :P10_SEARCH || '%')
+          OR TO_CHAR(session_date, 'YYYY-MM-DD') LIKE '%' || :P10_SEARCH || '%'
+          OR TO_CHAR(end_date, 'YYYY-MM-DD') LIKE '%' || :P10_SEARCH || '%'
+          OR TO_CHAR(id) LIKE '%' || :P10_SEARCH || '%'
+        )
+      
+
+  order-by: 
+    type: Item
+    item: 
+      item-name: P10_ORDER_BY
+      order-bys: 
+      - key: NAME
+        clause: '"NAME" asc'
+
+      - key: SESSION_DATE
+        clause: '"SESSION_DATE" asc'
+
+  layout: 
+    sequence: 30
+    parent-region: No Parent
+    slot: BODY
+    start-new-layout: false
+    start-new-row: true
+    column: Automatic
+    new-column: true
+    column-span: Automatic
+
+  appearance: 
+    template: Cards Container
+    template-options: 
+    - '#DEFAULT#'
+    - t-CardsRegion--hideHeader js-addHiddenHeadingRoleDesc
+    - t-CardsRegion--styleB
+    render-components: Above Content
+
+  accessibility: 
+    use-landmark: true
+    landmark-type: Template Default
+
+  advanced: 
+    region-display-selector: false
+    exclude-title-from-translation: false
+
+  customization: 
+    customizable: Not Customizable By End Users
+
+  attributes: 
+    id: 59680573662363767862
+    appearance: 
+      layout: Horizontal (Row)
+
+    card: 
+      css-classes: 
+      - premium-card
+
+    title: 
+      advanced-formatting: false
+      column: NAME
+
+    subtitle: 
+      advanced-formatting: false
+      column: SESSION_DATE
+
+    body: 
+      advanced-formatting: false
+
+    secondary-body: 
+      advanced-formatting: false
+
+    icon-and-badge: 
+      icon-source: No Icon
+
+    media: 
+      advanced-formatting: false
+      source: No Media
+
+    performance: 
+      lazy-loading: false
+
+    pagination: 
+      type: Scroll
+      show-total-count: false
+
+- # ====== Region: search ======================================
+  id: 184657234166465919487
+  identification: 
+    name: search
+    type: Static Content
+
+  layout: 
+    sequence: 10
+    parent-region: No Parent
+    slot: BODY
+    start-new-layout: false
+    start-new-row: true
+    column: Automatic
+    new-column: true
+    column-span: Automatic
+
+  appearance: 
+    template: Standard
+    template-options: 
+    - '#DEFAULT#'
+    - t-Region--removeHeader js-removeLandmark
+    - t-Region--noUI
+    - t-Region--scrollBody
+    render-components: Above Content
+
+  accessibility: 
+    use-landmark: true
+    landmark-type: Template Default
+
+  advanced: 
+    region-display-selector: false
+    exclude-title-from-translation: false
+
+  customization: 
+    customizable: Not Customizable By End Users
+
+  attributes: 
+    settings: 
+      output-as: HTML
+      expand-shortcuts: false
+
+page-items: 
+- # ====== Page Item: P10_COURSE_ID ============================
+  id: 58879721576494546438
+  identification: 
+    name: P10_COURSE_ID
+    type: Hidden
+
+  settings: 
+    value-protected: true
+
+  layout: 
+    sequence: 40
+    region: No Parent
+    slot: BODY
+
+  advanced: 
+    warn-on-unsaved-changes: Page Default
+
+  source: 
+    type: Null
+    used: Only when current value in session state is null
+
+  session-state: 
+    data-type: VARCHAR2
+    storage: Per Session (Persistent)
+
+  security: 
+    session-state-protection: Unrestricted
+    store-value-encrypted-in-session-state: true
+    restricted-characters: All characters can be saved.
+
+- # ====== Page Item: P10_ORDER_BY =============================
+  id: 59680574142043767863
+  identification: 
+    name: P10_ORDER_BY
+    type: Select List
+
+  label: 
+    label: Order By
+    alignment: Left
+
+  settings: 
+    page-action-on-selection: None
+
+  multiple-values: 
+    type: No
+
+  layout: 
+    sequence: 10
+    region: Sessions_of_courses # 59680573141699767861
+    slot: ORDER_BY_ITEM
+    alignment: Left
+    start-new-layout: false
+    start-new-row: true
+    column: Automatic
+    new-column: true
+    column-span: Automatic
+    label-column-span: Page Template Default
+
+  appearance: 
+    template: Optional - Floating
+    template-options: 
+    - '#DEFAULT#'
+    height: 1
+
+  validation: 
+    value-required: true
+
+  list-of-values: 
+    type: Static Values
+    static-values: 'STATIC2:Name;NAME,Session Date;SESSION_DATE'
+    display-extra-values: false
+    display-null-value: false
+
+  advanced: 
+    warn-on-unsaved-changes: Ignore
+
+  source: 
+    type: Null
+    used: Only when current value in session state is null
+
+  default: 
+    type: Static
+    static-value: NAME
+
+  session-state: 
+    storage: Per Session (Persistent)
+
+  quick-picks: 
+    show-quick-picks: false
+
+  security: 
+    session-state-protection: Unrestricted
+    store-value-encrypted-in-session-state: true
+    restricted-characters: All characters can be saved.
+
+- # ====== Page Item: P10_SEARCH ===============================
+  id: 184657235028695919499
+  identification: 
+    name: P10_SEARCH
+    type: Text Field
+
+  label: 
+    label: Search
+    alignment: Left
+
+  settings: 
+    subtype: Text
+    trim-spaces: Leading and Trailing
+    text-case: NO CHANGE
+    submit-when-enter-pressed: false
+    disabled: false
+
+  layout: 
+    sequence: 10
+    region: search # 184657234166465919487
+    slot: BODY
+    alignment: Left
+    start-new-layout: false
+    start-new-row: true
+    column: Automatic
+    new-column: true
+    column-span: Automatic
+    label-column-span: Page Template Default
+
+  appearance: 
+    template: Optional - Floating
+    template-options: 
+    - '#DEFAULT#'
+    width: 30
+    value-placeholder: Search by name, email, phone...
+
+  validation: 
+    value-required: false
+
+  advanced: 
+    warn-on-unsaved-changes: Page Default
+
+  source: 
+    type: Null
+    used: Only when current value in session state is null
+
+  session-state: 
+    storage: Per Session (Persistent)
+
+  quick-picks: 
+    show-quick-picks: false
+
+  security: 
+    session-state-protection: Unrestricted
+    store-value-encrypted-in-session-state: true
+    restricted-characters: All characters can be saved.
+
+buttons: 
+- # ====== Button: Back ========================================
+  id: 62461483922973509414
+  identification: 
+    button-name: Back
+    label: Back
+
+  layout: 
+    sequence: 50
+    region: No Parent
+    slot: BODY
+    start-new-layout: false
+    start-new-row: true
+    column: Automatic
+    new-column: true
+    column-span: Automatic
+    alignment: Left center
+
+  appearance: 
+    button-template: Text
+    hot: false
+    template-options: 
+    - '#DEFAULT#'
+
+  behavior: 
+    action: Redirect to Page in this Application
+    target: 
+      url: 'f?p=&APP_ID.:25:&SESSION.::&DEBUG.:::'
+      page: 25 # courses_of_providers
+
+    warn-on-unsaved-changes: Do Not Check
+
+dynamic-actions: 
+- # ====== Dynamic Action: search ==============================
+  id: 62461484007109509415
+  identification: 
+    name: search
+
+  execution: 
+    sequence: 10
+    event-scope: Static
+    type: Immediate
+
+  when: 
+    event: Key Release
+    selection-type: Item(s)
+    item(s): 
+    - P10_SEARCH
+
+  actions: 
+  - # ====== Action: Refresh =====================================
+    id: 62461484133480509416
+    identification: 
+      action: Refresh
+
+    settings: 
+      maintain-pagination: false
+
+    affected-elements: 
+      selection-type: Region
+      region: Sessions_of_courses # 59680573141699767861
+
+    execution: 
+      sequence: 10
+      event: search # 62461484007109509415
+      fire-when-event-result-is: True
+      fire-on-initialization: false
+

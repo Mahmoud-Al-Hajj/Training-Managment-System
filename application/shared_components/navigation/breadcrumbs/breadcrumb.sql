@@ -1,0 +1,110 @@
+prompt --application/shared_components/navigation/breadcrumbs/breadcrumb
+begin
+--   Manifest
+--     MENU: Breadcrumb
+--   Manifest End
+wwv_flow_imp.component_begin (
+ p_version_yyyy_mm_dd=>'2024.11.30'
+,p_release=>'24.2.6'
+,p_default_workspace_id=>38562329304957560273
+,p_default_application_id=>109167
+,p_default_id_offset=>0
+,p_default_owner=>'WKSP_DEVELOPMAH00J'
+);
+wwv_flow_imp_shared.create_menu(
+ p_id=>wwv_flow_imp.id(58103871364841662441)
+,p_name=>'Breadcrumb'
+);
+wwv_flow_imp_shared.create_menu_option(
+ p_id=>wwv_flow_imp.id(58103871514890662441)
+,p_short_name=>'Home'
+,p_link=>'f?p=&APP_ID.:1:&APP_SESSION.::&DEBUG.:::'
+,p_page_id=>1
+);
+wwv_flow_imp_shared.create_menu_option(
+ p_id=>wwv_flow_imp.id(58104648605899670057)
+,p_short_name=>'Providers'
+,p_link=>'f?p=&APP_ID.:2:&APP_SESSION.::&DEBUG.:::'
+,p_page_id=>2
+);
+wwv_flow_imp_shared.create_menu_option(
+ p_id=>wwv_flow_imp.id(58106724304917756193)
+,p_short_name=>'Courses'
+,p_link=>'f?p=&APP_ID.:4:&APP_SESSION.::&DEBUG.:::'
+,p_page_id=>4
+);
+wwv_flow_imp_shared.create_menu_option(
+ p_id=>wwv_flow_imp.id(58110525987721833524)
+,p_short_name=>'Sessions'
+,p_link=>'f?p=&APP_ID.:8:&APP_SESSION.::&DEBUG.:::'
+,p_page_id=>8
+);
+wwv_flow_imp_shared.create_menu_option(
+ p_id=>wwv_flow_imp.id(58159133282037081382)
+,p_short_name=>'Session_Attendance'
+,p_link=>'f?p=&APP_ID.:12:&APP_SESSION.::&DEBUG.:::'
+,p_page_id=>12
+);
+wwv_flow_imp_shared.create_menu_option(
+ p_id=>wwv_flow_imp.id(58563769051248339852)
+,p_short_name=>'Dashboard'
+,p_link=>'f?p=&APP_ID.:14:&APP_SESSION.::&DEBUG.:::'
+,p_page_id=>14
+);
+wwv_flow_imp_shared.create_menu_option(
+ p_id=>wwv_flow_imp.id(58617842198835865423)
+,p_short_name=>'Administration'
+,p_link=>'f?p=&APP_ID.:10000:&APP_SESSION.::&DEBUG.:::'
+,p_page_id=>10000
+);
+wwv_flow_imp_shared.create_menu_option(
+ p_id=>wwv_flow_imp.id(58897344004798957831)
+,p_short_name=>'Bulk Add Participants'
+,p_link=>'f?p=&APP_ID.:21:&APP_SESSION.::&DEBUG.:::'
+,p_page_id=>21
+);
+wwv_flow_imp_shared.create_menu_option(
+ p_id=>wwv_flow_imp.id(58909005022962219288)
+,p_short_name=>'Sessions Calender'
+,p_link=>'f?p=&APP_ID.:24:&APP_SESSION.::&DEBUG.:::'
+,p_page_id=>24
+);
+wwv_flow_imp_shared.create_menu_option(
+ p_id=>wwv_flow_imp.id(58914856474708407218)
+,p_short_name=>'courses_of_providers'
+,p_link=>'f?p=&APP_ID.:25:&APP_SESSION.::&DEBUG.:::'
+,p_page_id=>25
+);
+wwv_flow_imp_shared.create_menu_option(
+ p_id=>wwv_flow_imp.id(59680572905488767860)
+,p_short_name=>'Sessions_of_courses'
+,p_link=>'f?p=&APP_ID.:10:&APP_SESSION.::&DEBUG.:::'
+,p_page_id=>10
+);
+wwv_flow_imp_shared.create_menu_option(
+ p_id=>wwv_flow_imp.id(59730935428809733811)
+,p_short_name=>'Participant Report'
+,p_link=>'f?p=&APP_ID.:30:&APP_SESSION.::&DEBUG.:::'
+,p_page_id=>30
+);
+wwv_flow_imp_shared.create_menu_option(
+ p_id=>wwv_flow_imp.id(59736337260157866472)
+,p_short_name=>'Hidden_Patient_Session_History'
+,p_link=>'f?p=&APP_ID.:31:&APP_SESSION.::&DEBUG.:::'
+,p_page_id=>31
+);
+wwv_flow_imp_shared.create_menu_option(
+ p_id=>wwv_flow_imp.id(59739370036421980026)
+,p_short_name=>'participant'
+,p_link=>'f?p=&APP_ID.:26:&APP_SESSION.::&DEBUG.:::'
+,p_page_id=>26
+);
+wwv_flow_imp_shared.create_menu_option(
+ p_id=>wwv_flow_imp.id(63298436080763723384)
+,p_short_name=>'BULK UPDATE ATTENDANCE'
+,p_link=>'f?p=&APP_ID.:37:&APP_SESSION.::&DEBUG.:::'
+,p_page_id=>37
+);
+wwv_flow_imp.component_end;
+end;
+/

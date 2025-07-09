@@ -1,0 +1,115 @@
+---
+- # ====== List of Values: TS_PROVIDERS.NAME ===================
+  id: 58106700256522756172
+  identification: 
+    name: TS_PROVIDERS.NAME
+
+  subscription: 
+    version-number: 15634426015195
+
+  source: 
+    location: Local Database
+    type: Table / View
+    table-owner: Parsing Schema
+    table-name: TS_PROVIDERS
+
+  column-mapping: 
+    return: ID
+    display: NAME
+    default-sort: NAME
+    sort-direction: Ascending (Nulls Last)
+
+- # ====== List of Values: TS_COURSES.COURSE_NAME ==============
+  id: 58110507775596833506
+  identification: 
+    name: TS_COURSES.COURSE_NAME
+
+  subscription: 
+    version-number: 15634430251930
+
+  source: 
+    location: Local Database
+    type: Table / View
+    table-owner: Parsing Schema
+    table-name: TS_COURSES
+
+  column-mapping: 
+    return: ID
+    display: COURSE_NAME
+    default-sort: COURSE_NAME
+    sort-direction: Ascending (Nulls Last)
+
+- # ====== List of Values: TS_PARTICIPANTS.NAME ================
+  id: 58158177095412058076
+  identification: 
+    name: TS_PARTICIPANTS.NAME
+
+  subscription: 
+    version-number: 15634465213513
+
+  source: 
+    location: Local Database
+    type: Table / View
+    table-owner: Parsing Schema
+    table-name: TS_PARTICIPANTS
+
+  column-mapping: 
+    return: ID
+    display: NAME
+    default-sort: NAME
+    sort-direction: Ascending (Nulls Last)
+
+- # ====== List of Values: TS_SESSIONS.NAME ====================
+  id: 58158177725080058077
+  identification: 
+    name: TS_SESSIONS.NAME
+
+  subscription: 
+    version-number: 15634476535332
+
+  source: 
+    location: Local Database
+    type: Table / View
+    table-owner: Parsing Schema
+    table-name: TS_SESSIONS
+
+  column-mapping: 
+    return: ID
+    display: NAME
+    default-sort: ID
+    sort-direction: Ascending (Nulls Last)
+
+  columns: 
+  - # ====== Column: ID ==========================================
+    id: 58177114887256430170
+    identification: 
+      column-name: ID
+      show: false
+
+    layout: 
+      sequence: 10
+
+    source: 
+      data-type: NUMBER
+
+    advanced: 
+      searchable: false
+
+  - # ====== Column: NAME ========================================
+    id: 58177115292609430170
+    identification: 
+      column-name: NAME
+      show: true
+
+    heading: 
+      heading: Name
+
+    layout: 
+      sequence: 10
+
+    source: 
+      data-type: VARCHAR2
+
+    advanced: 
+      searchable: true
+

@@ -1,0 +1,261 @@
+---
+# ====== Application: Training Management System =============
+identification: 
+  name: Training Management System
+  alias: TRAINING-MANAGEMENT-SYSTEM
+  version: Release 1.0
+
+row-search: 
+  tokenize: true
+  text-query-function: None
+
+availability: 
+  status: Available with Developer Toolbar
+  build-status: Run and Build Application
+
+error-handling: 
+  default-display-location: Inline with Field and in Notification
+
+report-printing: 
+  type: Use Instance Settings
+
+advanced: 
+  friendly-urls: true
+  allow-feedback: true
+  logging: true
+  debugging: true
+  compatibility-mode: 24.2
+  accessible-read-only-items: true
+  pass-ecid: Y
+
+authentication: 
+  public-user: APEX_PUBLIC_USER
+  authentication-scheme: Oracle APEX Accounts # 58103871018585662441
+
+authorization: 
+  source-for-role-or-group-schemes: Access Control User Role Assignments
+
+session-management: 
+  rejoin-sessions: Disabled
+
+session-state-protection: 
+  enabled: true
+
+security: 
+  deep-linking: Disabled
+  browser-cache: Disabled
+  embed-in-frames: Deny
+  referrer-policy: strict-origin
+  html-escaping-mode: Extended
+  runtime-api-usage: 
+  - Modify This Application
+
+database-session: 
+  parsing-schema: WKSP_DEVELOPMAH00J
+
+globalization: 
+  primary-language: English (en)
+  document-direction: Language Default
+  language-derived-from: Application Primary Language
+  automatic-time-zone: false
+  automatic-csv-encoding: true
+
+application-format-masks: 
+  date: DS
+  timestamp: DS
+  timestamp-time-zone: DS
+
+character-value-comparison: 
+  behavior: Database session NLS setting (default)
+
+logo: 
+  type: Text
+  text: Training Management System
+
+progressive-web-app: 
+  enable: true
+  installable: false
+  display: Standalone
+  screen-orientation: Any
+  ios-status-bar-style: Default
+  enable-push-notifications: true
+  pwa-push-notifications-credentials: App 109167 Push Notifications Credentials # 58104497764045662473
+  contact-email: mah06.hajj@gmail.com
+
+navigation: 
+  home-url: 
+    url: 'f?p=&APP_ID.:1:&APP_SESSION.::&DEBUG.:::'
+    page: 1 # Home
+
+  login-url: 
+    url: 'f?p=&APP_ID.:LOGIN:&APP_SESSION.::&DEBUG.:::'
+    page: LOGIN
+
+navigation-menu: 
+  list-template: Top Navigation Menu
+  template-options: 
+  - '#DEFAULT#'
+  - js-tabLike
+  - js-showSubMenuIcons
+  list-position: Top
+  list: Navigation Menu # 58103871968497662441
+
+navigation-bar: 
+  implementation: List
+  list: Navigation Bar # 58103873136800662444
+  list-template: Navigation Bar
+  template-options: 
+  - '#DEFAULT#'
+
+javascript: 
+  include-jquery-migrate: false
+
+attributes: 
+  theme: Universal Theme # 42
+  global-page: 0
+  enable-end-users-to-choose-theme-style: false
+  add-"built-with-apex"-to-footer: false
+  auto-dismiss-success-messages: false
+
+subscription: 
+  version-number: 15638227372435
+
+substitutions: 
+- # ====== Substitution: APP_NAME ==============================
+  id: 1
+  identification: 
+    name: APP_NAME
+
+  value: 
+    static-value: Training Management System
+
+component-settings: 
+- # ====== Component Setting: NATIVE_OPEN_AI_ASSISTANT =========
+  id: 58103866520228662436
+  identification: 
+    name: NATIVE_OPEN_AI_ASSISTANT
+    type: Dynamic Action
+
+  subscription: 
+    version-number: 15634422804404
+
+- # ====== Component Setting: NATIVE_COLOR_PICKER ==============
+  id: 58103866897601662437
+  identification: 
+    name: NATIVE_COLOR_PICKER
+    type: Item
+
+  subscription: 
+    version-number: 15634422804419
+
+- # ====== Component Setting: NATIVE_DATE_PICKER_APEX ==========
+  id: 58103867172916662438
+  identification: 
+    name: NATIVE_DATE_PICKER_APEX
+    type: Item
+
+  subscription: 
+    version-number: 15634422804419
+
+- # ====== Component Setting: NATIVE_GEOCODED_ADDRESS ==========
+  id: 58103867474724662438
+  identification: 
+    name: NATIVE_GEOCODED_ADDRESS
+    type: Item
+
+  subscription: 
+    version-number: 15634422804419
+
+- # ====== Component Setting: NATIVE_SELECT_MANY ===============
+  id: 58103867719381662438
+  identification: 
+    name: NATIVE_SELECT_MANY
+    type: Item
+
+  subscription: 
+    version-number: 15634422804434
+
+- # ====== Component Setting: NATIVE_SINGLE_CHECKBOX ===========
+  id: 58103868024279662439
+  identification: 
+    name: NATIVE_SINGLE_CHECKBOX
+    type: Item
+
+  subscription: 
+    version-number: 15634422804434
+
+- # ====== Component Setting: NATIVE_STAR_RATING ===============
+  id: 58103868371683662439
+  identification: 
+    name: NATIVE_STAR_RATING
+    type: Item
+
+  subscription: 
+    version-number: 15634422804434
+
+- # ====== Component Setting: NATIVE_YES_NO ====================
+  id: 58103868649536662439
+  identification: 
+    name: NATIVE_YES_NO
+    type: Item
+
+  subscription: 
+    version-number: 15634422804434
+
+- # ====== Component Setting: NATIVE_GEOCODING =================
+  id: 58103868925650662439
+  identification: 
+    name: NATIVE_GEOCODING
+    type: Process
+
+  settings: 
+    attribute-1: RELAX_HOUSE_NUMBER
+
+  subscription: 
+    version-number: 15634422804439
+
+- # ====== Component Setting: NATIVE_DISPLAY_SELECTOR ==========
+  id: 58103869219888662439
+  identification: 
+    name: NATIVE_DISPLAY_SELECTOR
+    type: Region
+
+  subscription: 
+    version-number: 15634422804445
+
+- # ====== Component Setting: NATIVE_IR ========================
+  id: 58103869520443662439
+  identification: 
+    name: NATIVE_IR
+    type: Region
+
+  subscription: 
+    version-number: 15634422804448
+
+- # ====== Component Setting: NATIVE_MAP_REGION ================
+  id: 58103869887806662440
+  identification: 
+    name: NATIVE_MAP_REGION
+    type: Region
+
+  subscription: 
+    version-number: 15634422804453
+
+- # ====== Component Setting: NATIVE_ADFBC =====================
+  id: 58103870167679662440
+  identification: 
+    name: NATIVE_ADFBC
+    type: REST Data Source
+
+  subscription: 
+    version-number: 15634422804454
+
+- # ====== Component Setting: NATIVE_BOSS ======================
+  id: 58103870408845662440
+  identification: 
+    name: NATIVE_BOSS
+    type: REST Data Source
+
+  subscription: 
+    version-number: 15634422804465
+

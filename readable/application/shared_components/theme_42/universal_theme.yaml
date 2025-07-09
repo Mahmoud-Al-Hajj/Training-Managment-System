@@ -1,0 +1,128 @@
+---
+# ====== Theme: Universal Theme ==============================
+id: 42
+identification: 
+  theme-number: 42
+  name: Universal Theme
+  identifier: UNIVERSAL_THEME
+  version: 24.2
+
+navigation: 
+  type: List
+  navigation-bar-type: List
+
+javascript: 
+  file-urls: 
+  - '#APEX_FILES#libraries/apex/#MIN_DIRECTORY#widget.stickyWidget#MIN#.js?v=#APEX_VERSION#'
+  - '#THEME_FILES#js/theme42#MIN#.js?v=#APEX_VERSION#'
+
+css: 
+  file-urls: 
+  - '#THEME_FILES#css/Core#MIN#.css?v=#APEX_VERSION#'
+
+component-defaults: 
+  current-theme-style: mahjooj
+  page: Standard
+  navigation-bar-list: Navigation Bar
+  navigation-menu-list-position: Side
+  navigation-menu-list-(top): Top Navigation Menu
+  navigation-menu-list-(side): Side Navigation Menu
+  login-page: Login
+  error-page: Login
+  printer-friendly-page: Standard
+  breadcrumb: Breadcrumb
+  button: Text
+  legacy-calendar: Calendar
+  default-label: Optional - Floating
+  optional-label: Optional - Floating
+  required-label: Required - Floating
+  list: Links List
+  region: Standard
+  classic-report: Standard
+
+region-defaults: 
+  breadcrumbs: Title Bar
+  charts: Standard
+  forms: Standard
+  lists: Standard
+  reports: Standard
+  wizards: Standard
+  interactive-reports: Interactive Report
+
+dialog-defaults: 
+  dialog-content-region: Blank with Attributes
+  dialog-button-region: Buttons Container
+  dialog-page: Modal Dialog
+
+icons: 
+  library: Font APEX
+
+files: 
+  file-prefix: '#APEX_FILES#themes/theme_42/24.2/'
+
+styles: 
+- # ====== Style: mahjooj ======================================
+  id: 58141746759538649620
+  identification: 
+    name: mahjooj
+
+  settings: 
+    is-public: true
+    accessibility-tested: false
+
+  css: 
+    file-urls: 
+    - '#APEX_FILES#libraries/oracle-fonts/oraclesans-apex#MIN#.css?v=#APEX_VERSION#'
+    - '#THEME_FILES#css/Redwood#MIN#.css?v=#APEX_VERSION#'
+
+  cascading-style-sheet: 
+    css-classes: ' rw-pillar--teal rw-mode-header--dark rw-mode-nav--dark rw-mode-body-header--light rw-mode-body--light rw-layout--fixed t-PageBody--scrollTitle'
+
+  theme-roller-attributes: 
+    read-only: false
+    input-parameter-file-urls: '#THEME_FILES#less/theme/Redwood-Theme.less'
+    output-css-file-url: '#THEME_DB_FILES#58141746759538649620.css'
+    json-configuration: '{"classes":["rw-pillar--teal","rw-layout--fixed t-PageBody--scrollTitle","rw-layout--fixed t-PageBody--scrollTitle","rw-mode-header--dark","rw-mode-nav--dark","rw-mode-body-header--light","rw-mode-body--light","rw-layout--fixed t-PageBody--scrollTitle"],"vars":{},"customCSS":"","useCustomLess":"N"}'
+
+- # ====== Style: TEST =========================================
+  id: 59719009982306372692
+  identification: 
+    name: TEST
+
+  settings: 
+    is-public: true
+    accessibility-tested: false
+
+  css: 
+    file-urls: 
+    - '#APEX_FILES#libraries/oracle-fonts/oraclesans-apex#MIN#.css?v=#APEX_VERSION#'
+    - '#THEME_FILES#css/Redwood#MIN#.css?v=#APEX_VERSION#'
+
+  cascading-style-sheet: 
+    css-classes: ' rw-pillar--teal rw-mode-header--dark rw-mode-nav--dark rw-mode-body-header--light rw-mode-body--light rw-layout--fixed t-PageBody--scrollTitle'
+
+  theme-roller-attributes: 
+    read-only: false
+    input-parameter-file-urls: '#THEME_FILES#less/theme/Redwood-Theme.less'
+    output-css-file-url: '#THEME_DB_FILES#59719009982306372692.css'
+    json-configuration: "{\"classes\":[\"rw-pillar--teal\",\"rw-layout--fixed t-PageBody--scrollTitle\",\"rw-layout--fixed t-PageBody--scrollTitle\",\"rw-mode-header--dark\",\"rw-mode-nav--dark\",\"rw-mode-body-header--light\",\"rw-mode-body--light\",\"rw-layout--fixed t-PageBody--scrollTitle\"],\"vars\":{},\"customCSS\":\"/* ===== CORE THEME COLORS ===== */\\n:root {\\n  /* Primary Color Palette */\\n  --primary-color: #2c3e50;       /* Classic navy blue */\\n  --secondary-color: #3498db;     /* Bright blue */\\n  --accent-color: #e74c3c;        /* Classic red */\\n  --success-color: #27ae60;       /* Emerald green */\\n  --warning-color: #f39c12;       /* Golden yellow */\\n  --danger-color: #c0392b;        /* Deep red */\\n  \\n  /* Neutral Colors */\\n  --light-gray: #ecf0f1;          /* Very light gray */\\n  --medium-gray: #bdc3c7;         /* Medium gray */\\n  --dark-gray: #7f8c8d;          /* Dark gray */\\n  --text-color: #2c3e50;         /* Primary text color */\\n  --text-light: #95a5a6;         /* Secondary text */\\n  \\n  /* Component Colors */\\n  --border-color: #dfe6e9;       /* Light borders */\\n  --hover-color: #f8f9fa;        /* Row hover */\\n  --focus-color: rgba(52, 152, 219, 0.2); /* Focus ring */\\n}\\n\\n/* ===== GLOBAL STYLES ===== */\\n.t-Body {\\n  font-family: 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;\\n  color: var(--text-color);\\n  background-color: #f5f7fa;\\n  line-height: 1.6;\\n}\\n\\n/* ===== NAVIGATION ===== */\\n.t-NavigationBar {\\n  background-color: var(--primary-color);\\n  box-shadow: 0 2px 4px rgba(0,0,0,0.1);\\n}\\n\\n.t-NavigationBar-item.is-active,\\n.t-NavigationBar-item:hover {\\n  background-color: rgba(255,255,255,0.1);\\n  border-left: 3px solid var(--secondary-color);\\n}\\n\\n/* ===== BUTTONS ===== */\\n.t-Button {\\n  border-radius: 4px;\\n  font-weight: 500;\\n  transition: all 0.2s ease;\\n  padding: 8px 16px;\\n}\\n\\n.t-Button--primary {\\n  background-color: var(--secondary-color);\\n  border: 1px solid var(--secondary-color);\\n  color: white;\\n}\\n\\n.t-Button--primary:hover {\\n  background-color: #2980b9;\\n  transform: translateY(-1px);\\n  box-shadow: 0 2px 4px rgba(0,0,0,0.1);\\n}\\n\\n.t-Button--danger {\\n  background-color: var(--danger-color);\\n  border: 1px solid var(--danger-color);\\n}\\n\\n/* ===== CARDS & REGIONS ===== */\\n.t-Region {\\n  border-radius: 6px;\\n  border: 1px solid var(--border-color);\\n  box-shadow: 0 1px 3px rgba(0,0,0,0.05);\\n  background-color: white;\\n}\",\"useCustomLess\":\"N\"}"
+
+files: 
+- # ====== File: 58141746759538649620.css ======================
+  id: 58141747114955649621
+  identification: 
+    file-name: 58141746759538649620.css
+
+  attributes: 
+    mime-type: text/css
+    file-character-set: Unicode UTF-8
+
+- # ====== File: 59719009982306372692.css ======================
+  id: 59719010381641372694
+  identification: 
+    file-name: 59719009982306372692.css
+
+  attributes: 
+    mime-type: text/css
+    file-character-set: Unicode UTF-8
+

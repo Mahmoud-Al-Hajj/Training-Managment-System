@@ -1,0 +1,79 @@
+/*!
+ Copyright (c) 2020, 2024, Oracle and/or its affiliates.
+ */
+
+/* ===== CORE THEME COLORS ===== */
+:root {
+  /* Primary Color Palette */
+  --primary-color: #2c3e50;       /* Classic navy blue */
+  --secondary-color: #3498db;     /* Bright blue */
+  --accent-color: #e74c3c;        /* Classic red */
+  --success-color: #27ae60;       /* Emerald green */
+  --warning-color: #f39c12;       /* Golden yellow */
+  --danger-color: #c0392b;        /* Deep red */
+  
+  /* Neutral Colors */
+  --light-gray: #ecf0f1;          /* Very light gray */
+  --medium-gray: #bdc3c7;         /* Medium gray */
+  --dark-gray: #7f8c8d;          /* Dark gray */
+  --text-color: #2c3e50;         /* Primary text color */
+  --text-light: #95a5a6;         /* Secondary text */
+  
+  /* Component Colors */
+  --border-color: #dfe6e9;       /* Light borders */
+  --hover-color: #f8f9fa;        /* Row hover */
+  --focus-color: rgba(52, 152, 219, 0.2); /* Focus ring */
+}
+
+/* ===== GLOBAL STYLES ===== */
+.t-Body {
+  font-family: 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
+  color: var(--text-color);
+  background-color: #f5f7fa;
+  line-height: 1.6;
+}
+
+/* ===== NAVIGATION ===== */
+.t-NavigationBar {
+  background-color: var(--primary-color);
+  box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+}
+
+.t-NavigationBar-item.is-active,
+.t-NavigationBar-item:hover {
+  background-color: rgba(255,255,255,0.1);
+  border-left: 3px solid var(--secondary-color);
+}
+
+/* ===== BUTTONS ===== */
+.t-Button {
+  border-radius: 4px;
+  font-weight: 500;
+  transition: all 0.2s ease;
+  padding: 8px 16px;
+}
+
+.t-Button--primary {
+  background-color: var(--secondary-color);
+  border: 1px solid var(--secondary-color);
+  color: white;
+}
+
+.t-Button--primary:hover {
+  background-color: #2980b9;
+  transform: translateY(-1px);
+  box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+}
+
+.t-Button--danger {
+  background-color: var(--danger-color);
+  border: 1px solid var(--danger-color);
+}
+
+/* ===== CARDS & REGIONS ===== */
+.t-Region {
+  border-radius: 6px;
+  border: 1px solid var(--border-color);
+  box-shadow: 0 1px 3px rgba(0,0,0,0.05);
+  background-color: white;
+}

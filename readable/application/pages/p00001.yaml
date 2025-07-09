@@ -1,0 +1,373 @@
+---
+# ====== Page: Home ==========================================
+id: 1
+identification: 
+  name: Home
+  alias: HOME
+  title: Training Management System
+
+appearance: 
+  page-mode: Normal
+  page-template: Theme Default
+  template-options: 
+  - '#DEFAULT#'
+
+navigation-menu: 
+  override-user-interface-level: false
+
+navigation: 
+  cursor-focus: Do not focus cursor
+  warn-on-unsaved-changes: true
+
+css: 
+  inline: |
+    /* ===== Ultra-Premium APEX Card ===== */
+    .ux-card {
+        border-radius: 12px;
+        background: #fff;
+        box-shadow: 
+            0 2px 4px rgba(0, 0, 0, 0.03),
+            0 4px 20px rgba(0, 0, 0, 0.08);
+        border: none;
+        overflow: hidden;
+        transition: all 0.35s cubic-bezier(0.25, 0.8, 0.25, 1);
+        margin-bottom: 24px;
+        position: relative;
+    }
+    
+    /* --- Hover Animation (Subtle but impactful) --- */
+    .ux-card:hover {
+        transform: translateY(-4px);
+        box-shadow: 
+            0 6px 12px rgba(0, 0, 0, 0.1),
+            0 12px 40px rgba(0, 0, 0, 0.12);
+    }
+    
+    /* --- Card Header (Elegant & Bold) --- */
+    .ux-card .a-CardView-header {
+        padding: 18px 24px;
+        background: linear-gradient(135deg, #f9fafc 0%, #f0f3f7 100%);
+        border-bottom: 1px solid rgba(0, 0, 0, 0.05);
+        font-weight: 600;
+        font-size: 1.15rem;
+        color: #2d3748;
+        letter-spacing: -0.2px;
+    }
+    
+    /* --- Card Body (Perfect Readability) --- */
+    .ux-card .a-CardView-body {
+        padding: 24px;
+        color: #4a5568;
+        line-height: 1.65;
+        font-size: 0.95rem;
+    }
+    
+    /* --- Card Footer (Subtle & Refined) --- */
+    .ux-card .a-CardView-footer {
+        padding: 14px 24px;
+        background: rgba(249, 250, 252, 0.7);
+        border-top: 1px solid rgba(0, 0, 0, 0.03);
+        font-size: 0.85rem;
+        color: #718096;
+    }
+    
+    /* --- Optional: Accent Border (Uncomment to use) --- */
+    .ux-card.accent-primary {
+        border-left: 4px solid #4361ee;
+    }
+    .ux-card.accent-success {
+        border-left: 4px solid #06d6a0;
+    }
+    .ux-card.accent-danger {
+        border-left: 4px solid #ef476f;
+    }
+
+security: 
+  authentication: Page Requires Authentication
+  deep-linking: Application Default
+  page-access-protection: Arguments Must Have Checksum
+  form-auto-complete: Off
+  browser-cache: Application Default
+
+session-management: 
+  rejoin-sessions: Application Default
+
+advanced: 
+  enable-duplicate-page-submissions: Yes - Enable page to be re-posted
+  reload-on-submit: Only for Success
+
+server-cache: 
+  caching: Disabled
+
+regions: 
+- # ====== Region: Training Management System ==================
+  id: 58103885036579662460
+  identification: 
+    name: Training Management System
+    type: Static Content
+
+  layout: 
+    sequence: 10
+    parent-region: No Parent
+    slot: REGION_POSITION_01
+    start-new-layout: false
+    start-new-row: true
+    column: Automatic
+    new-column: true
+    column-span: Automatic
+
+  appearance: 
+    template: Hero
+    template-options: 
+    - '#DEFAULT#'
+    render-components: Above Content
+
+  accessibility: 
+    use-landmark: true
+    landmark-type: Template Default
+
+  image: 
+    file-url: '#APP_FILES#icons/app-icon-512.png'
+
+  advanced: 
+    region-display-selector: false
+    exclude-title-from-translation: false
+
+  customization: 
+    customizable: Not Customizable By End Users
+
+  attributes: 
+    settings: 
+      output-as: HTML
+      expand-shortcuts: false
+
+- # ====== Region: cards =======================================
+  id: 58879720554481546428
+  identification: 
+    name: cards
+    type: Cards
+
+  source: 
+    location: Local Database
+    type: SQL Query
+    sql-query: |
+      SELECT ID,
+             NAME,
+             EMAIL,
+             PHONE_NUMBER,
+             ADDRESS,
+             REGISTRATION_DATE
+      FROM TS_PROVIDERS
+      WHERE (:P1_SEARCH IS NULL
+             OR UPPER(NAME) LIKE UPPER('%' || :P1_SEARCH || '%')
+             OR UPPER(EMAIL) LIKE UPPER('%' || :P1_SEARCH || '%')
+             OR UPPER(PHONE_NUMBER) LIKE UPPER('%' || :P1_SEARCH || '%')
+             OR UPPER(ADDRESS) LIKE UPPER('%' || :P1_SEARCH || '%'))
+      
+
+  order-by: 
+    type: None
+
+  layout: 
+    sequence: 20
+    parent-region: No Parent
+    slot: BODY
+    start-new-layout: false
+    start-new-row: true
+    column: Automatic
+    new-column: true
+    column-span: Automatic
+
+  appearance: 
+    template: Cards Container
+    template-options: 
+    - '#DEFAULT#'
+    - t-CardsRegion--hideHeader js-addHiddenHeadingRoleDesc
+    - t-CardsRegion--styleB
+    render-components: Above Content
+
+  accessibility: 
+    use-landmark: true
+    landmark-type: Template Default
+
+  advanced: 
+    region-display-selector: false
+    exclude-title-from-translation: false
+
+  customization: 
+    customizable: Not Customizable By End Users
+
+  attributes: 
+    id: 58879720681275546429
+    appearance: 
+      layout: Grid
+      grid-columns: Auto
+
+    card: 
+      css-classes: 
+      - ux-card
+
+    title: 
+      advanced-formatting: false
+      column: NAME
+
+    subtitle: 
+      advanced-formatting: false
+
+    body: 
+      advanced-formatting: false
+      column: EMAIL
+
+    secondary-body: 
+      advanced-formatting: false
+      column: PHONE_NUMBER
+
+    icon-and-badge: 
+      icon-source: Initials
+      icon-column: NAME
+      icon-position: Start
+
+    media: 
+      advanced-formatting: false
+      source: No Media
+
+    performance: 
+      lazy-loading: false
+
+    pagination: 
+      type: Scroll
+      show-total-count: false
+
+    actions: 
+    - # ====== Action: Full Card ===================================
+      id: 58879720790637546430
+      identification: 
+        type: Full Card
+
+      layout: 
+        sequence: 10
+
+      link: 
+        type: Redirect to Page in this Application
+        target: 
+          url: 'f?p=&APP_ID.:25:&SESSION.::&DEBUG.::P11_PROVIDER_ID:&ID.#ID##ID#'
+          page: 25 # courses_of_providers
+          values: 
+            p11_provider_id: '&ID.#ID##ID#'
+
+- # ====== Region: search ======================================
+  id: 122193390269548275311
+  identification: 
+    name: search
+    type: Static Content
+
+  layout: 
+    sequence: 10
+    parent-region: No Parent
+    slot: BODY
+    start-new-layout: false
+    start-new-row: true
+    column: Automatic
+    new-column: true
+    column-span: Automatic
+
+  appearance: 
+    template: Standard
+    template-options: 
+    - '#DEFAULT#'
+    - t-Region--removeHeader js-removeLandmark
+    - t-Region--noUI
+    - t-Region--scrollBody
+    render-components: Above Content
+
+  accessibility: 
+    use-landmark: true
+    landmark-type: Template Default
+
+  advanced: 
+    region-display-selector: false
+    exclude-title-from-translation: false
+
+  customization: 
+    customizable: Not Customizable By End Users
+
+  attributes: 
+    settings: 
+      output-as: HTML
+      expand-shortcuts: false
+
+page-items: 
+- # ====== Page Item: P1_SEARCH ================================
+  id: 122193390917721275317
+  identification: 
+    name: P1_SEARCH
+    type: Text Field
+
+  label: 
+    label: Search
+    alignment: Left
+
+  settings: 
+    subtype: Text
+    trim-spaces: Leading and Trailing
+    text-case: NO CHANGE
+    submit-when-enter-pressed: false
+    disabled: false
+
+  layout: 
+    sequence: 10
+    region: search # 122193390269548275311
+    slot: BODY
+    alignment: Left
+    start-new-layout: false
+    start-new-row: true
+    column: Automatic
+    new-column: true
+    column-span: Automatic
+    label-column-span: Page Template Default
+
+  appearance: 
+    template: Optional - Floating
+    template-options: 
+    - '#DEFAULT#'
+    width: 30
+    value-placeholder: Search by name, email, phone...
+
+  validation: 
+    value-required: false
+
+  advanced: 
+    warn-on-unsaved-changes: Page Default
+
+  source: 
+    type: Null
+    used: Only when current value in session state is null
+
+  session-state: 
+    storage: Per Session (Persistent)
+
+  quick-picks: 
+    show-quick-picks: false
+
+  security: 
+    session-state-protection: Unrestricted
+    store-value-encrypted-in-session-state: true
+    restricted-characters: All characters can be saved.
+
+dynamic-actions: 
+- # ====== Dynamic Action: search ==============================
+  id: 59732086148117783549
+  identification: 
+    name: search
+
+  execution: 
+    sequence: 10
+    event-scope: Static
+    type: Immediate
+
+  when: 
+    event: Key Release
+    selection-type: Item(s)
+    item(s): 
+    - P1_SEARCH
+
