@@ -1,3 +1,0 @@
-*.sql linguist-language=SQL
-*.apex linguist-language=HTML
-*.css linguist-vendored=false
